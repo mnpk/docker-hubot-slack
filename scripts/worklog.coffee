@@ -54,10 +54,8 @@ module.exports = (robot) ->
       if result.total == 0
         return
       summary = "#{msg.message.user.name}님이 오늘 진행하신 이슈입니다.\n"
-      msg.send summary
       text = ""
       for issue in result.issues
         text = text + "(#{issue.key}) #{issue.fields.summary}\n"
-      msg.send text
-      msg.send "업무 보고 이메일을 발송합니다."
+      msg.send "#{summary}\n#{text}\n업무 보고 이메일을 발송합니다."
       send_worklog_email  "#{result.issues[0].fields.assignee.emailAddress}", "일일업무보고 #{today()}", text

@@ -20,9 +20,7 @@ module.exports = (robot) ->
     if body.webhookEvent == 'jira:issue_updated' && body.comment
       issue = "#{body.issue.key} #{body.issue.fields.summary}"
       url = "#{process.env.HUBOT_JIRA_URL}/browse/#{body.issue.key}"
-      robot.messageRoom room, "*#{issue}* _(#{url})_"
-      robot.messageRoom room, "@#{body.comment.author.name}님의 댓글:"
-      robot.messageRoom room, "```#{body.comment.body}```"
+      robot.messageRoom room, "*#{issue}* _(#{url})_\n@#{body.comment.author.name}님의 댓글:\n```#{body.comment.body}```"
     res.send 'OK'
 
   robot.router.post '/hubot/chat-to/:room', (req, res) ->
