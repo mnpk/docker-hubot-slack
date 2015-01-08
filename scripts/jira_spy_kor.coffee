@@ -15,7 +15,7 @@
 
 module.exports = (robot) ->
   robot.router.post '/hubot/chat-jira-comment/:room', (req, res) ->
-    room = "##{req.params.room}"
+    room = req.params.room
     body = req.body
     if body.webhookEvent == 'jira:issue_updated' && body.comment
       issue = "#{body.issue.key} #{body.issue.fields.summary}"
@@ -26,7 +26,7 @@ module.exports = (robot) ->
     res.send 'OK'
 
   robot.router.post '/hubot/chat-to/:room', (req, res) ->
-    room = "##{req.params.room}"
+    room = req.params.room
     body = req.body
-    robot.messageRoom room, "```#{body.comment}```"
+    robot.messageRoom room, body.comment
     res.send 'OK'
