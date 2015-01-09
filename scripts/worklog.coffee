@@ -35,10 +35,10 @@ module.exports = (robot) ->
     }, (err, message) ->
       console.log(err || message))
 
-  robot.respond /업무\s*보고\s+(.*)/, (msg) ->
+  robot.respond /업무\s*보고\s*(.*)/, (msg) ->
     log = msg.match[1]
     summary = "#{msg.message.user.name}님이 오늘 진행하신 이슈입니다.\n"
     summary += "```#{msg.match[1]}```"
     msg.send summary
-    send_worklog_email  "#{result.issues[0].fields.assignee.emailAddress}", "일일업무보고 #{today()}", msg.match[1]
-    msg.send "업무보고 이메일을 발송했습니다."
+    # send_worklog_email  "#{result.issues[0].fields.assignee.emailAddress}", "일일업무보고 #{today()}", msg.match[1]
+    # msg.send "업무보고 이메일을 발송했습니다."
