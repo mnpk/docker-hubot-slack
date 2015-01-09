@@ -26,10 +26,10 @@ module.exports = (robot) ->
        password: process.env.HUBOT_EMAIL_PASSWORD,
        host: "mail.castis.com",
        ssl: false
-    });
+    })
     server.send({
        text: "#{body}",
-       from: "#{from}", 
+       from: "#{from}",
        to: "<sd7@castis.com>",
        subject: "#{title}"
     }, (err, message) ->
@@ -39,6 +39,6 @@ module.exports = (robot) ->
     log = msg.match[1]
     summary = "#{msg.message.user.name}님이 오늘 진행하신 이슈입니다.\n"
     summary += "```#{msg.match[1]}```"
-    msg.messageRoom "sandbox", summary
-    # send_worklog_email  "#{result.issues[0].fields.assignee.emailAddress}", "일일업무보고 #{today()}", text
-    # msg.send "업무보고 이메일을 발송했습니다."
+    msg.send summary
+    send_worklog_email  "#{result.issues[0].fields.assignee.emailAddress}", "일일업무보고 #{today()}", msg.match[1]
+    msg.send "업무보고 이메일을 발송했습니다."
