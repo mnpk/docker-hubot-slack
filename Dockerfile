@@ -24,7 +24,7 @@ EXPOSE 9009
 
 # Add custum scripts
 ADD hubot-scripts.json /root/myhubot/hubot-scripts.json
-ADD scripts/*.coffee /root/myhubot/scripts/
+ADD mnpk-hubot-scripts/*.coffee /root/myhubot/scripts/
 
 # Run hubot("-a slack")
 WORKDIR /root/myhubot
