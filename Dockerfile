@@ -8,7 +8,7 @@ RUN cd /root && \
   hubot --create myhubot && \
   cd myhubot && \
   npm install hubot-slack --save && \
-  npm install nodepie underscore xml2js cron emailjs sugar --save && \
+  npm install underscore xml2js cron emailjs sugar --save && \
   npm install
 
 
