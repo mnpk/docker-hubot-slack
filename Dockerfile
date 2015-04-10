@@ -1,4 +1,4 @@
-FROM dockerfile/nodejs
+FROM node:0.10
 
 # Install base packages
 RUN npm install -g hubot@2.6.0 coffee-script redis
@@ -24,7 +24,7 @@ EXPOSE 9009
 
 # Add custum scripts
 ADD hubot-scripts.json /root/myhubot/hubot-scripts.json
-ADD mnpk-hubot-scripts/*.coffee /root/myhubot/scripts/
+ADD mnpk-hubot-scripts/ /root/myhubot/scripts/
 
 # Run hubot("-a slack")
 WORKDIR /root/myhubot
