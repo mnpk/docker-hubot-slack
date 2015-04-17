@@ -9,7 +9,9 @@ RUN cd /root && \
   cd myhubot && \
   npm install hubot-slack --save && \
   npm install underscore xml2js cron emailjs sugar --save && \
-  npm install
+  npm install hubot-figlet hubot-scripts-kor --save && \
+  npm install && \
+  echo '["hubot-scripts-kor", "hubot-figlet"]' > external-scripts.json
 
 
 # Set environment variables
@@ -24,7 +26,6 @@ EXPOSE 9009
 
 # Add custum scripts
 ADD hubot-scripts.json /root/myhubot/hubot-scripts.json
-ADD mnpk-hubot-scripts/ /root/myhubot/scripts/
 
 # Run hubot("-a slack")
 WORKDIR /root/myhubot
