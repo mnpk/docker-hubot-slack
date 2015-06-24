@@ -9,9 +9,9 @@ RUN cd /root && \
   cd myhubot && \
   npm install hubot-slack --save && \
   npm install underscore xml2js cron emailjs sugar --save && \
-  npm install hubot-horse-racing hubot-magnet hubot-google hubot-figlet hubot-scripts-kor --save && \
+  npm install hubot-horse-racing hubot-magnet hubot-google hubot-figlet hubot-scripts-kor hubot-map-kor --save && \
   npm install && \
-  echo '["hubot-horse-racing", "hubot-scripts-kor", "hubot-figlet", "hubot-google", "hubot-magnet"]' > external-scripts.json
+  echo '["hubot-horse-racing", "hubot-scripts-kor", "hubot-figlet", "hubot-google", "hubot-magnet", "hubot-map-kor"]' > external-scripts.json
 
 
 # Set environment variables
